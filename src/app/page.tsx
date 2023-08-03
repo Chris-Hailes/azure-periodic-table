@@ -157,7 +157,8 @@ export default function Page() {
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
             textSearch={textSearch}
-            setActiveElement={setActiveElement}
+            activeElement={activeElement}
+            setSelectedElement={setActiveElement}
             setOpen={setOpen}
             zoomLevel={isFullScreen ? 1 : 0}
           />

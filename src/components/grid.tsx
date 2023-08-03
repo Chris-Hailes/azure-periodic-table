@@ -1,5 +1,3 @@
-/* src/components/grid.tsx */
-
 import type { Categories } from '@/app/constants';
 import type { CategoryData } from './category-selector';
 import Image from 'next/image';
@@ -7,6 +5,7 @@ import type { Item } from '@/app/data';
 import { useLayoutEffect, useRef } from 'react';
 import useMobile from '@/custom-hooks/use-mobile';
 import { prefix } from '@/prefix';
+import { useState } from 'react';
 
 interface CellProps {
   item: Item;
@@ -14,7 +13,7 @@ interface CellProps {
   activeCategory: Categories | null;
   setActiveCategory: (category: Categories | null) => void;
   select: () => void;
-  setActiveElement: (element: any) => void;
+  setSelectedElement: (element: Item | null) => void;  // New prop for setting the selected element
   categoryData: CategoryData;
   textSearch: string;
 }
@@ -24,7 +23,7 @@ const Cell: React.FC<CellProps> = ({
   zoomLevel = 0,
   activeCategory,
   select,
-  setActiveElement,
+  setSelectedElement,  // New prop for setting the selected element
   categoryData,
   textSearch,
 }) => {
@@ -92,7 +91,7 @@ const Cell: React.FC<CellProps> = ({
       onClick={() => {
         if (isDisabled) return;
         handleGoogleTag(item);
-        setActiveElement(item);
+        setSelectedElement(item);  // Set the selected element when the cell is clicked
         select();
       }}
       className={`${height} ${width}  dark:border-white border-black border m-0.5 p-1 ${colorOption} ${transparent} justify-center items-center cursor-pointer transition-all ${hoverScale} z-0 hover:z-10 `}
@@ -131,7 +130,7 @@ interface ColumnProps {
   activeCategory: Categories | null;
   setActiveCategory: (category: Categories | null) => void;
   select: () => void;
-  setActiveElement: (element: any) => void;
+  setSelectedElement: (element: Item | null) => void;  // New prop for setting the selected element
   categoryData: CategoryData;
   textSearch: string;
   zoomLevel: 0 | 1 | 2;
@@ -142,7 +141,7 @@ export const Column: React.FC<ColumnProps> = ({
   activeCategory,
   setActiveCategory,
   select,
-  setActiveElement,
+  setSelectedElement,  // New prop for setting the selected element
   categoryData,
   textSearch,
   zoomLevel,
@@ -157,7 +156,7 @@ export const Column: React.FC<ColumnProps> = ({
           key={i}
           item={item}
           select={select}
-          setActiveElement={setActiveElement}
+          setSelectedElement={setSelectedElement}  // Pass the setSelectedElement prop to the Cell component
           categoryData={categoryData}
           zoomLevel={zoomLevel}
         />

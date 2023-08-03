@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 import { Column } from './grid';
-import { CategorySelector, type CategoryData } from './category-selector';
+import { CategorySelector, CategoryData } from './category-selector';
 import { Item, columns } from '@/app/data';
 import { Categories } from '@/app/constants';
 import { colorConfig } from '@/config';
@@ -21,21 +22,46 @@ export const categoryData: CategoryData = [
   { name: Categories.MANAGEMENT, color: colorConfig.rose },
 ];
 
+interface PeriodicTableProps {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  activeElement: Item | null;
+  setSelectedElement: Dispatch<SetStateAction<Item | null>>;
+  activeCategory: Categories | null;
+  setActiveCategory: Dispatch<SetStateAction<Categories | null>>;
+  textSearch: string;
+  zoomLevel: 0 | 1 | 2;
+}
+
 export default function PeriodicTable({
   setOpen,
-  setActiveElement,
+  activeElement,
+  setSelectedElement,
   activeCategory,
   setActiveCategory,
   textSearch,
   zoomLevel,
-}: {
-  setOpen: Dispatch<SetStateAction<boolean>>;
-  activeCategory: Categories | null;
-  setActiveCategory: Dispatch<SetStateAction<Categories | null>>;
-  setActiveElement: Dispatch<SetStateAction<Item | null>>;
-  textSearch: string;
-  zoomLevel: 0 | 1 | 2;
-}) {
+}: PeriodicTableProps) {
+
+  const [response, setResponse] = useState<string | null>(null);
+
+  const handleSelect = async (serviceName: string) => {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ serviceName }),
+    });
+    const data = await res.json();
+    setResponse(data.message);
+  };
+
+  useEffect(() => {
+    if (activeElement) {
+      handleSelect(activeElement.name);
+    }
+  }, [activeElement]);
+
   return (
     <div className="flex-col-reverse flex w-full lg:flex-row lg:flex text-white justify-start md:justify-center items-start py-6 overflow-scroll md:overflow-visible flex-nowrap">
       <div className="flex justify-start md:justify-center items-start">
@@ -47,7 +73,7 @@ export default function PeriodicTable({
             key={i}
             items={group.items}
             textSearch={textSearch}
-            setActiveElement={setActiveElement}
+            setSelectedElement={setSelectedElement}
             categoryData={categoryData}
             zoomLevel={zoomLevel}
           />

@@ -7,6 +7,7 @@ import { Check, CopyIcon } from 'lucide-react';
 import { categoryData } from './periodic-table';
 import { prefix } from '@/prefix';
 import useMobile from '@/custom-hooks/use-mobile';
+import { getChatCompletion } from '@/app/chat';
 
 export default function Sidebar({
   setOpen,
@@ -21,12 +22,23 @@ export default function Sidebar({
   const [copied, setCopied] = useState(false);
   const isMobile = useMobile();
 
+  // New state variables for the question and answer
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+
   // after 2 seconds have copied be false if active
   useEffect(() => {
     if (copied) {
       setTimeout(() => setCopied(false), 2000);
     }
   }, [copied]);
+
+  // New function to handle form submissions
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const response = await getChatCompletion(question);
+    setAnswer(response);
+  };
 
   if (!activeElement) return null;
 
@@ -60,7 +72,23 @@ export default function Sidebar({
             </div>
           </div>
         </SheetHeader>
-
+        <div className="mb-4">
+          {activeElement && (
+            <form onSubmit={handleSubmit}>
+              <label>
+                Ask a question about {activeElement.name}:
+                <input
+                  type="text"
+                  value={question}
+                  onChange={(event) => setQuestion(event.target.value)}
+                />
+              </label>
+              <button type="submit">Submit</button>
+            </form>
+          )}
+        </div>
+        {/* Display the answer when it is available */}
+        {answer && <div>{answer}</div>}
         <SheetTitle className="mb-4">
           <div className="flex flex-col justify-center items-start mt-4 mb-2">
             <div className="flex">
@@ -98,11 +126,10 @@ export default function Sidebar({
               )}
             </span>
             <div
-              className={`lg:mx-0 w-6 h-6 rounded my-1 ${
-                categoryData.find(
-                  (item) => item.name === activeElement.category
-                )?.color
-              }`}
+              className={`lg:mx-0 w-6 h-6 rounded my-1 ${categoryData.find(
+                (item) => item.name === activeElement.category
+              )?.color
+                }`}
             />
             <span className="ml-2">{activeElement.category}</span>
           </div>
@@ -171,7 +198,7 @@ export default function Sidebar({
             )}
           </div>
           <div className="my-6 text-left">
-          <span className="font-bold text-xl">Utilities</span>
+            <span className="font-bold text-xl">Utilities</span>
             <div className="flex justify-start items-center my-2 flex-wrap">
               {activeElement?.viewAllURL && (
                 <a
