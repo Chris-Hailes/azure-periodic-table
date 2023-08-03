@@ -20,7 +20,7 @@ async function getChatCompletion(question: string) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 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',
+        'Authorization': 'Bearer make_this_an_environment_variable',
       },
       body: JSON.stringify(requestBody),
     });
