@@ -13,6 +13,9 @@
 
   --secondary-dark: hsla(210, 50%, 15%, 0.446); /* Dark color */
   --secondary-light: hsla(210, 50%, 85%, 0.52); /* Light color */
+
+  --line-dark: rgba(214, 214, 214, 0.308);
+  --line-light: rgba(124, 124, 124, 0.308);
 }
 
 .dark {
@@ -20,6 +23,7 @@
   --bg: var(--bg-dark);
   --primary: var(--bg-light);
   --secondary: var(--secondary-dark);
+  --line: var(--line-dark);
 
   --background: hsl(240 10% 3.9%);
   --foreground: hsl(0 0% 98%);
@@ -47,7 +51,7 @@
   --bg: var(--bg-light);
   --primary: var(--bg-dark);
   --secondary: var(--secondary-light);
-
+  --line: var(--line-light);
   --background: hsl(0 0% 100%);
   --foreground: hsl(240 10% 3.9%);
   --muted: hsl(240 4.8% 95.9%);

@@ -26,10 +26,11 @@ module.exports = {
         secondary: 'var(--secondary)',
         border: 'var(--border)',
         input: 'var(--input)',
+        line: 'var(--line)',
       },
       scale: {
-        '200': '2',
-        '250': '2.5',
+        200: '2',
+        250: '2.5',
       },
       keyframes: {
         'accordion-down': {

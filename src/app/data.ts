@@ -45,19 +45,23 @@ export const columns: ColumnType[] = [
         code: '',
       },
       {
-        "name": "Subscriptions",
-        "slug": "sub-",
-        "description": "Subscriptions in Azure act as a single billing unit and provide the ability to administer resources, control resource usage, and organize resources according to individual business needs.",
-        "length": "1-90",
-        "category": Categories.GENERAL,
-        "learnUrl": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions",
-        "terraformUrl": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription",
-        "restrictions": "Alphanumerics, hyphens, and underscores. Cannot begin or end with a hyphen or underscore. Cannot contain consecutive hyphens or underscores.",
-        "resource": "Microsoft.Subscription",
-        "entity": "subscriptions",
-        "scope": "tenant",
-        "icon": "/icons/Management/Subscription.png",
-        "code": ""
+        name: 'Subscriptions',
+        slug: 'sub-',
+        description:
+          'Subscriptions in Azure act as a single billing unit and provide the ability to administer resources, control resource usage, and organize resources according to individual business needs.',
+        length: '1-90',
+        category: Categories.GENERAL,
+        learnUrl:
+          'https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions',
+        terraformUrl:
+          'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subscription',
+        restrictions:
+          'Alphanumerics, hyphens, and underscores. Cannot begin or end with a hyphen or underscore. Cannot contain consecutive hyphens or underscores.',
+        resource: 'Microsoft.Subscription',
+        entity: 'subscriptions',
+        scope: 'tenant',
+        icon: '/icons/Management/Subscription.png',
+        code: '',
       },
       {
         name: 'resource group',
@@ -98,19 +102,23 @@ export const columns: ColumnType[] = [
         code: '',
       },
       {
-        "name": "policy initiative",
-        "slug": "set-",
-        "description": "Azure Policy Set Definitions, also known as Initiatives, simplify managing and assigning policies. They are a set of Policy Definitions that are tailored towards achieving a singular overarching goal. By grouping policies together, you can ensure they're properly assigned to achieve full coverage across your resources.",
-        "length": "1-64",
-        "category": Categories.GENERAL,
-        "learnUrl": "https://learn.microsoft.com/en-us/azure/governance/policy/overview#initiative-definition",
-        "terraformUrl": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_set_definition",
-        "restrictions": "Display name can contain any characters. Resource name Can not use:<>*%&:?. +/ or control characters. Can not end with period or space.",
-        "resource": "Microsoft.Authorization",
-        "entity": "policySetDefinitions",
-        "scope": "scope of definition",
-        "icon": "/icons/Management/Policy Initiative.png",
-        "code": "",
+        name: 'policy initiative',
+        slug: 'set-',
+        description:
+          "Azure Policy Set Definitions, also known as Initiatives, simplify managing and assigning policies. They are a set of Policy Definitions that are tailored towards achieving a singular overarching goal. By grouping policies together, you can ensure they're properly assigned to achieve full coverage across your resources.",
+        length: '1-64',
+        category: Categories.GENERAL,
+        learnUrl:
+          'https://learn.microsoft.com/en-us/azure/governance/policy/overview#initiative-definition',
+        terraformUrl:
+          'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_set_definition',
+        restrictions:
+          'Display name can contain any characters. Resource name Can not use:<>*%&:?. +/ or control characters. Can not end with period or space.',
+        resource: 'Microsoft.Authorization',
+        entity: 'policySetDefinitions',
+        scope: 'scope of definition',
+        icon: '/icons/Management/Policy Initiative.png',
+        code: '',
       },
       {
         name: 'policy definition',
@@ -130,7 +138,7 @@ export const columns: ColumnType[] = [
         scope: 'scope of definition',
         icon: '/icons/Management/Policy Definition.png',
         code: '',
-      }
+      },
     ],
   },
   {
@@ -216,8 +224,7 @@ export const columns: ColumnType[] = [
           'Azure ExpressRoute is a service that enables establishing dedicated, private network connections between Azure datacenters and your on-premises infrastructure.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/expressroute/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/expressroute/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/express_route_circuit',
         restrictions:
@@ -252,8 +259,7 @@ export const columns: ColumnType[] = [
         slug: 'dnsz-',
         description:
           "Azure DNS Zone is a service that allows you to host your domain's DNS records on Azure, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials and billing and support contract as your other Azure services.",
-        length:
-          '1-63',
+        length: '1-63',
         category: Categories.NETWORKING,
         learnUrl: 'https://learn.microsoft.com/en-us/azure/dns/dns-overview',
         terraformUrl:
@@ -271,8 +277,7 @@ export const columns: ColumnType[] = [
         slug: 'pdnsz-',
         description:
           'Azure Private DNS Zone is a service that provides an ability to use your own custom domain names, rather than the Azure-provided names. It helps in name resolution for virtual machines (VMs) within a virtual network and between virtual networks.',
-        length:
-          '1-63',
+        length: '1-63',
         category: Categories.NETWORKING,
         learnUrl:
           'https://docs.microsoft.com/en-us/azure/dns/private-dns-overview',
@@ -389,8 +394,7 @@ export const columns: ColumnType[] = [
           'Internal Load Balancer in Azure is used to provide load balancing services within a private network.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/load-balancer/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/load-balancer/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb',
         restrictions:
@@ -408,8 +412,7 @@ export const columns: ColumnType[] = [
           'External Load Balancer in Azure is used to provide load balancing services for incoming Internet traffic.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/load-balancer/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/load-balancer/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb',
         restrictions:
@@ -427,8 +430,7 @@ export const columns: ColumnType[] = [
           'Load Balancer rules in Azure define the inbound traffic flow to the resources in your backend pool.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/load-balancer/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/load-balancer/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/lb_rule',
         restrictions:
@@ -446,8 +448,7 @@ export const columns: ColumnType[] = [
           'The local network gateway in Azure represents your on-premises network location to Azure for cross-premises connections.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/vpn-gateway/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/vpn-gateway/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/local_network_gateway',
         restrictions:
@@ -465,8 +466,7 @@ export const columns: ColumnType[] = [
           'Azure NAT Gateway is a resource that provides outbound internet connectivity for virtual networks.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/nat-gateway/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/nat-gateway/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/nat_gateway',
         restrictions:
@@ -484,8 +484,7 @@ export const columns: ColumnType[] = [
           'Network interface (NIC) is an interconnection between a virtual machine (VM) and the underlying Azure virtual network (VNet).',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/virtual-network/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/virtual-network/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface',
         restrictions:
@@ -564,7 +563,8 @@ export const columns: ColumnType[] = [
         length: '2-64',
         category: Categories.NETWORKING,
         learnUrl: 'https://learn.microsoft.com/en-us/azure/private-link/',
-        terraformUrl: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint',
+        terraformUrl:
+          'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_endpoint',
         restrictions:
           'Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric.  End alphanumeric or underscore.',
         resource: 'Microsoft.Network',
@@ -658,8 +658,7 @@ export const columns: ColumnType[] = [
         category: Categories.NETWORKING,
         learnUrl:
           'https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview',
-        terraformUrl:
-          '',
+        terraformUrl: '',
         restrictions:
           'Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric.  End alphanumeric or underscore.',
         resource: 'Microsoft.Network',
@@ -675,8 +674,7 @@ export const columns: ColumnType[] = [
           'Azure Traffic Manager allows you to control the distribution of user traffic to your service endpoints, providing a range of traffic-routing methods and endpoint monitoring options.',
         length: '1-63',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/traffic-manager/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/traffic-manager/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/traffic_manager_profile',
         restrictions:
@@ -717,8 +715,7 @@ export const columns: ColumnType[] = [
           'Azure Virtual Network is a fundamental building block for your private network in Azure, enabling many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks.',
         length: '2-64',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/virtual-network/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/virtual-network/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network',
         restrictions:
@@ -736,8 +733,7 @@ export const columns: ColumnType[] = [
           'Subnets in Azure represent a range within a Virtual Network that can have its own security and networking settings. Different types of Azure resources can be connected to different subnets within the same Virtual Network.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/virtual-network/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/virtual-network/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet',
         restrictions:
@@ -774,8 +770,7 @@ export const columns: ColumnType[] = [
           'Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. It enables global transit network architecture by connecting, and configuring multiple types of networks.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/virtual-wan/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/virtual-wan/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_wan',
         restrictions:
@@ -793,8 +788,7 @@ export const columns: ColumnType[] = [
           'Azure VPN Gateway connects your on-premises networks to Azure through Site-to-Site VPNs in a similar way that you set up and connect to a remote branch office. It allows secure connections from on-premises networks to Azure virtual networks.',
         length: '1-80',
         category: Categories.NETWORKING,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/vpn-gateway/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/vpn-gateway/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vpn_gateway',
         restrictions:
@@ -968,10 +962,8 @@ export const columns: ColumnType[] = [
           'Azure Arc-enabled servers allow you to manage your Windows and Linux machines hosted outside of Azure, on your corporate network, or other cloud provider, similar to how you manage native Azure virtual machines.',
         length: '1-40',
         category: Categories.COMPUTEANDWEB,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/azure-arc/servers/',
-        terraformUrl:
-          '',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/azure-arc/servers/',
+        terraformUrl: '',
         restrictions:
           'Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode',
         resource: 'Microsoft.Web',
@@ -989,8 +981,7 @@ export const columns: ColumnType[] = [
         category: Categories.COMPUTEANDWEB,
         learnUrl:
           'https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/overview',
-        terraformUrl:
-          '',
+        terraformUrl: '',
         restrictions:
           'Alphanumerics, underscores, and hyphens. Start and end with alphanumeric.',
         resource: 'Microsoft.ContainerService',
@@ -1024,8 +1015,7 @@ export const columns: ColumnType[] = [
           'Azure Function App is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure.',
         length: '2-60',
         category: Categories.COMPUTEANDWEB,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/azure-functions/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/azure-functions/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app',
         restrictions:
@@ -1120,8 +1110,7 @@ export const columns: ColumnType[] = [
           'Azure Notification Hubs Namespaces provide a unique scoping container, in which you can create multiple notification hubs.',
         length: '6-50',
         category: Categories.COMPUTEANDWEB,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/notification-hubs/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/notification-hubs/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/notification_hub_namespace',
         restrictions:
@@ -1347,8 +1336,7 @@ export const columns: ColumnType[] = [
           'Azure Cosmos DB is a globally distributed, multi-model database service that enables you to elastically and independently scale throughput and storage across any number of Azure regions worldwide.',
         length: '3-44',
         category: Categories.DATABASES,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/cosmos-db/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/cosmos-db/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cosmosdb_account',
         restrictions:
@@ -1379,19 +1367,23 @@ export const columns: ColumnType[] = [
         code: '',
       },
       {
-        "name": "sql server",
-        "slug": "sql-",
-        "description": "Azure SQL Server is a fully managed relational database service by Microsoft. It provides the broadest SQL Server engine compatibility and up-to-date security and compliance standards. Users can focus on optimizing their database management and data manipulation without the need to manage infrastructure.",
-        "length": "1-63",
-        "category": Categories.DATABASES,
-        "learnUrl": "https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql-db",
-        "terraformUrl": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_server",
-        "restrictions": "Lowercase letters, numbers, and hyphens. Cannot start or end with a hyphen.",
-        "resource": "Microsoft.Sql",
-        "entity": "servers",
-        "scope": "global",
-        "icon": "/icons/Data/SQL Server.png",
-        "code": ""
+        name: 'sql server',
+        slug: 'sql-',
+        description:
+          'Azure SQL Server is a fully managed relational database service by Microsoft. It provides the broadest SQL Server engine compatibility and up-to-date security and compliance standards. Users can focus on optimizing their database management and data manipulation without the need to manage infrastructure.',
+        length: '1-63',
+        category: Categories.DATABASES,
+        learnUrl:
+          'https://learn.microsoft.com/en-us/azure/azure-sql/?view=azuresql-db',
+        terraformUrl:
+          'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/sql_server',
+        restrictions:
+          'Lowercase letters, numbers, and hyphens. Cannot start or end with a hyphen.',
+        resource: 'Microsoft.Sql',
+        entity: 'servers',
+        scope: 'global',
+        icon: '/icons/Data/SQL Server.png',
+        code: '',
       },
       {
         name: 'sql database',
@@ -1513,10 +1505,8 @@ export const columns: ColumnType[] = [
           'Azure StorSimple is a hybrid cloud storage solution that integrates your on-premises IT environment with the Azure storage infrastructure. It provides primary storage, archive, backup, and disaster recovery, while reducing cost and IT workload.',
         length: '2-50',
         category: Categories.STORAGE,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/storsimple/',
-        terraformUrl:
-          '',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/storsimple/',
+        terraformUrl: '',
         restrictions:
           'Alphanumerics and hyphens. Start with letter. End with alphanumeric.',
         resource: 'Microsoft.StorSimple',
@@ -1551,8 +1541,7 @@ export const columns: ColumnType[] = [
           "Azure Search Service is a fully managed cloud search service that provides a rich search experience to custom applications. You can populate it with your own data and the service finds what's relevant to user queries.",
         length: '2-64',
         category: Categories.AIANDML,
-        learnUrl:
-          'https://learn.microsoft.com/en-us/azure/search/',
+        learnUrl: 'https://learn.microsoft.com/en-us/azure/search/',
         terraformUrl:
           'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/search_service',
         restrictions:
@@ -1582,7 +1571,7 @@ export const columns: ColumnType[] = [
         code: '',
       },
       {
-        name: 'speach service',
+        name: 'speech service',
         slug: 'spch-',
         description:
           'Azure Speech service provides real-time and batch speech-to-text and text-to-speech conversion capabilities, enabling applications to understand and speak naturally.',
@@ -1827,16 +1816,14 @@ export const columns: ColumnType[] = [
         length: '3-63',
         category: Categories.AIANDML,
         learnUrl: 'https://learn.microsoft.com/en-us/fabric/get-started/',
-        terraformUrl:
-          '',
-        restrictions:
-          'Alphanumerics. Start with alphanumeric.',
+        terraformUrl: '',
+        restrictions: 'Alphanumerics. Start with alphanumeric.',
         resource: 'Microsoft.Fabric',
         entity: 'capacity',
         scope: 'region',
         icon: '/icons/AI/Microsoft Fabric.png',
         code: '',
-      }
+      },
     ],
   },
   {
