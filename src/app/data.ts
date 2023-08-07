@@ -677,6 +677,26 @@ export const columns: ColumnType[] = [
         viewAllURL: 'https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FrouteFilters',
       },
       {
+        name: 'route server',
+        slug: 'rtserv-',
+        description:
+          'Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network',
+        length: '1-80',
+        category: Categories.NETWORKING,
+        learnUrl:
+          'https://learn.microsoft.com/en-us/azure/route-server/',
+        terraformUrl:
+          'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_server',
+        restrictions:
+          'Alphanumerics, underscores, periods, and hyphens. Start with alphanumeric.  End alphanumeric or underscore.',
+        resource: 'Microsoft.Network',
+        entity: 'routeServer',
+        scope: 'resource group',
+        icon: '/icons/Networking/Route Server.png',
+        code: '',
+        viewAllURL: 'https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FvirtualHubs/kind/routeserver',
+      },
+      {
         name: 'route table',
         slug: 'rt-',
         description:
