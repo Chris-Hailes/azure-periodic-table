@@ -14,7 +14,7 @@ export default function Topbar() {
     <nav className="flex w-full">
       <Sheet open={open} onOpenChange={() => setOpen((prev) => !prev)}>
         <SheetContent className="bg-bg">
-          <div className="flex flex-col w-full justify-center items-center">
+          <div className="flex flex-col w-full justify-center items-start">
             <Link
               className="flex w-full my-2 justify-start items-center"
               href={siteConfig.github}
@@ -23,6 +23,16 @@ export default function Topbar() {
               <Button className="" variant={'ghost'}>
                 <Icons.GitHub className="h-6 w-6 fill-current" />
                 <span className="px-4 font-bold text-lg">GitHub</span>
+              </Button>
+            </Link>
+            <Link
+              className="flex w-full my-2 justify-start items-center"
+              href={siteConfig.discord}
+              target="_blank"
+            >
+              <Button className="" variant={'ghost'}>
+                <Icons.Discord className="h-6 w-6 fill-current" />
+                <span className="px-4 font-bold text-lg">Discord</span>
               </Button>
             </Link>
             <Link
@@ -43,28 +53,29 @@ export default function Topbar() {
                 <span className="px-4 font-bold text-lg">LinkedIn</span>
               </Button>
             </Link>
-
-            <Button
-              onClick={() =>
-                theme === themes.DARK
-                  ? setTheme(themes.LIGHT)
-                  : setTheme(themes.DARK)
-              }
-              variant={'ghost'}
-              className="w-full flex justify-start items-center"
-            >
-              {theme === themes.DARK ? (
-                <div className="flex my-2 justify-start items-center">
-                  <Icons.Moon className="h-6 w-6 fill-current" />
-                  <span className="px-4 font-bold text-lg">Dark Mode</span>
-                </div>
-              ) : (
-                <div className="flex my-2 justify-start items-center">
-                  <Icons.Sun className="h-6 w-6 fill-current" />
-                  <span className="px-4 font-bold text-lg">Light Mode</span>
-                </div>
-              )}
-            </Button>
+            <div className="flex my-2 justify-start items-center">
+              <Button
+                onClick={() =>
+                  theme === themes.DARK
+                    ? setTheme(themes.LIGHT)
+                    : setTheme(themes.DARK)
+                }
+                variant={'ghost'}
+                className="w-full flex justify-start items-center"
+              >
+                {theme === themes.DARK ? (
+                  <div className="flex my-2 justify-start items-center">
+                    <Icons.Moon className="h-6 w-6 fill-current" />
+                    <span className="px-4 font-bold text-lg">Dark Mode</span>
+                  </div>
+                ) : (
+                  <div className="flex my-2 justify-start items-center">
+                    <Icons.Sun className="h-6 w-6 fill-current" />
+                    <span className="px-4 font-bold text-lg">Light Mode</span>
+                  </div>
+                )}
+              </Button>
+            </div>
           </div>
         </SheetContent>
       </Sheet>
@@ -87,6 +98,14 @@ export default function Topbar() {
             <Icons.GitHub className="h-5 w-5 fill-current" />
           </Button>
         </a>
+        <Link className="" href={siteConfig.discord} target="_blank">
+          <Button
+            className="flex justify-center items-center"
+            variant={'ghost'}
+          >
+            <Icons.Discord className="h-6 w-6 fill-current" />
+          </Button>
+        </Link>
         <a
           href={siteConfig.linkedin}
           target="_blank"

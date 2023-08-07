@@ -1,4 +1,4 @@
-import { ArrowsUpFromLine } from "lucide-react";
+import { ArrowsUpFromLine } from 'lucide-react';
 
 export const siteConfig = {
   title: 'Onward Platforms',
@@ -6,6 +6,7 @@ export const siteConfig = {
   github: 'https://github.com/onwardplatforms/azure-periodic-table',
   twitter: 'https://twitter.com/reillyjodonnell',
   linkedin: 'https://www.linkedin.com/in/justin-o-connor-67376483/',
+  discord: 'https://discord.gg/VvGn3qW5EF',
 };
 
 const twitterUsername = "Justin O'Connor";
