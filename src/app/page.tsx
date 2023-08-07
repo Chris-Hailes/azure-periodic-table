@@ -2,13 +2,12 @@
 
 'use client';
 
-import { MouseEventHandler, ReactElement, ReactNode, useState } from 'react';
+import { useState } from 'react';
 import { Item } from './data';
 import PeriodicTable, { categoryData } from '@/components/periodic-table';
 import Search from '@/components/search';
 import Sidebar from '@/components/sidebar';
 import Topbar from '@/components/topbar';
-import { Icons } from '@/components/ui/icons';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,38 +16,13 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import { Categories } from './constants';
-import {
-  AtomIcon,
-  Download,
-  DownloadIcon,
-  Expand,
-  ExpandIcon,
-  MaximizeIcon,
-  PlusSquare,
-  SearchIcon,
-  Share2Icon,
-  Shrink,
-  ShrinkIcon,
-  Wand,
-} from 'lucide-react';
+import { Download, Expand, PlusSquare, Shrink } from 'lucide-react';
 import { Share } from '@/components/share';
 import useFullScreen from '@/custom-hooks/use-full-screen';
 import useMobile from '@/custom-hooks/use-mobile';
 import { prefix } from '@/prefix';
-import { Separator } from '@/components/ui/separator';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+import {} from '@/components/ui/tooltip';
+import BottomToolBar from '@/components/bottom-tool-bar';
 
 export default function Page() {
   const [activeElement, setActiveElement] = useState<Item | null>(null);
@@ -57,7 +31,6 @@ export default function Page() {
   const [activeCategory, setActiveCategory] = useState<Categories | null>(null);
   const isMobile = useMobile();
   const { toggleFullScreen, isFullScreen } = useFullScreen();
-  const [openSearch, setOpenSearch] = useState(false);
 
   const downloadFile = () => {
     // Provide the path to your local file here.
@@ -73,77 +46,23 @@ export default function Page() {
     a.click();
   };
   return (
-    <TooltipProvider>
-      <div className="fixed flex left-[50%] bottom-5 z-50 w-lg rounded-full translate-x-[-50%] translate-y-[-10%] gap-4 bg-[#02061780] border border-line shadow-lg p-2 backdrop-blur-[10px]">
-        <div className="flex ">
-          <Option
-            Icon={SearchIcon}
-            onClick={() => setOpenSearch((prev) => !prev)}
-            text="Search"
-          />
-        </div>
-        {openSearch ? (
-          <div
-            className={`flex items-center transition-all duration-500 ease-in-out ${
-              openSearch
-                ? 'transform translate-x-0'
-                : 'transform translate-x-full'
-            }`}
-          >
-            <input
-              type="text"
-              className="w-full p-2 rounded-full border border-line shadow-lg backdrop-blur-[10px]"
-              placeholder="Search..."
-            />
-          </div>
-        ) : (
-          <>
-            <div className="flex justify-center items-center">
-              <Separator
-                className="h-[50%] flex justify-center items-center"
-                orientation="vertical"
-              />
-            </div>
-            <div className="flex ">
-              <Option
-                Icon={DownloadIcon}
-                onClick={downloadFile}
-                text="Download"
-              />
-              <Option Icon={Share2Icon} onClick={() => {}} text="Share" />
-              <Option
-                Icon={isFullScreen ? ShrinkIcon : ExpandIcon}
-                onClick={toggleFullScreen}
-                text={isFullScreen ? 'Minimize' : 'Maximize'}
-              />
-            </div>
-            <div className="flex justify-center items-center">
-              <Separator
-                className="h-[50%] flex justify-center items-center"
-                orientation="vertical"
-              />
-            </div>
-            <div className="flex ">
-              <Option Icon={Wand} onClick={() => {}} text="AI" />
-            </div>
-          </>
-        )}
-      </div>
+    <>
+      <BottomToolBar
+        downloadFile={downloadFile}
+        isFullScreen={isFullScreen}
+        toggleFullScreen={toggleFullScreen}
+      />
+
       <main className="relative flex-col min-h-screen items-center justify-center p-8 bg-white dark:bg-slate-950">
         <div className="static lg:relative top-0 left-0 w-full md:flex flex-col items-center justify-center">
           {isFullScreen ? null : (
             <>
               <Topbar />
-              <div className="flex justify-start sm:justify-center items-center my-4">
-                <div className="mr-2 md:mr-6  md:my-0">
-                  <Icons.Azure className="w-8 h-8 md:w-32 md:h-32" />
-                </div>
+              <div className="flex justify-start sm:justify-center items-center my-4 md:my-6">
+                <div className="mr-2 md:mr-6  md:my-0"></div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-md lg:text-4xl dark:text-white text-slate-800">
-                    Azure Resource
-                  </span>
-                  <span className="font-semibold text-md lg:text-2xl text-accent">
-                    Naming Convention Periodic Table
+                  <span className="font-bold flex items-center justify-center text-md lg:text-4xl dark:text-white text-slate-800">
+                    Azure Periodic Table
                   </span>
                 </div>
               </div>
@@ -247,32 +166,6 @@ export default function Page() {
           </main>
         </div>
       </main>
-    </TooltipProvider>
-  );
-}
-
-interface OptionProps {
-  Icon: (props: any) => ReactElement;
-  iconProps?: Record<string, unknown>;
-  text: ReactNode;
-  onClick: MouseEventHandler<HTMLButtonElement>;
-}
-
-function Option({ Icon, iconProps, text, onClick }: OptionProps) {
-  return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          onClick={onClick}
-          className="rounded-full h-12 w-12 flex justify-center items-center"
-          variant={'ghost'}
-        >
-          <Icon className="w-12 h-12" {...iconProps} />
-        </Button>
-      </TooltipTrigger>
-      <TooltipContent sideOffset={5} align="center">
-        {text}
-      </TooltipContent>
-    </Tooltip>
+    </>
   );
 }
